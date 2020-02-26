@@ -8,16 +8,12 @@ import frc.robot.*;
 public class fire extends SequentialCommandGroup {
     public fire() {
         addCommands(
-            new SequentialCommandGroup(
-                new ParallelCommandGroup(
+            new ParallelCommandGroup(
                 new TurretCommand(RobotContainer.turretSub, () -> Robot.steeringAdjust),
                 new ShooterCommand()
             ),
-            new wait(),
-            new StorageCommand())
-
-
-            
+            new WaitCommand(1),
+            new StorageCommand()
         );
     }
 }
